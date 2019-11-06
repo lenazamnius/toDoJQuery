@@ -4,13 +4,13 @@ $("ul").on("click", "li", function() {
 })
 
 // show/hide new input todo
-$(".plus-btn").on("click", function() {
-  $("input").slideToggle(500);
+$(".fa-plus-circle").on("click", function() {
+  $("input").fadeToggle(500);
 });
 
 //delete todo
 $("ul").on("click", "span", function(event) {
-  $(this).parent().fadeOut(500, function() {
+  $(this).parent().fadeOut(300, function() {
     $(this).remove();
   });
   event.stopPropagation();
@@ -18,7 +18,7 @@ $("ul").on("click", "span", function(event) {
 
 //add new todo
 $("input[type='text']").keypress(function(event) {
-  const newTodo = "<li><span>X</span> " + $(this).val() + "</li>";
+  const newTodo = "<li><span><i class='fas fa-times'></i></span> " + $(this).val() + "</li>";
   if(event.which === 13) {
     $(this).val("");
     $("ul").append(newTodo);
